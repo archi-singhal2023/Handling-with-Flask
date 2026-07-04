@@ -1,22 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>{% block title %} My Site {% endblock %}</title>
+    <title>{% block title %} Flask-WTF Form {% endblock %}</title>
   </head>
   <body>
     <header>
-      <h1>Welcome to my Site</h1>
-      <nav>
-        <a href="/">Home</a>
-      </nav>
+      <h1>Welcome to Form Page</h1>
     </header>
+    <h1>Flask-WTF Registration</h1>
 
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul style="color: orange">
-      {% for msg in messages %}
-      <li>{{ msg }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %} {% block content %}{% endblock %}
+    {% with messages = get_flashed_messages(with_categories=True) %} {% if
+    messages %} {% for category, msg in messages %}
+    <p style="color: green">{{msg}}</p>
+    {%endfor%} {% endif %} {% endwith %} {% block content %}{% endblock %}
   </body>
 </html>
